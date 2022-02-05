@@ -8,16 +8,23 @@
 import SwiftUI
 import CoreData
 
+
+
 struct StudyPage: View {
     
     var fetchRequest: FetchRequest<SightWord>
+    
 
     @StateObject var viewModel = StudyViewModel()
     var deck : Deck
     
+    
+    
     @State var selection = 0
+    @State var backgroundColor : Color = .white
     
     var body: some View {
+        ZStack{
         VStack(alignment: .center){
             
             Text(deck.title ?? "").bold()
@@ -26,7 +33,7 @@ struct StudyPage: View {
             Spacer()
             TabView(selection: $selection){
                 if fetchRequest.wrappedValue.isEmpty {
-                    Text("No Words in this collection.")
+                    Text("This collection is empty.")
                 } else {
                 ForEach(fetchRequest.wrappedValue, id: \.dateCreated) { word in
                     WordView(word: word)
@@ -37,15 +44,31 @@ struct StudyPage: View {
             }.tabViewStyle(PageTabViewStyle())
             
             HStack{
-                Button("Bad", action: badButtonPRessed)
-                Button("Medium", action: mediumButtonPRessed)
-                Button("Good", action: goodButtonPRessed)
+                Button(action: badButtonPRessed, label: {
+                    Text("Try again")
+                        .padding()
+                    .withDefaultButtonFormatting(color: .red)
+                }
+                       )
+                    .withPRessableStyle()
+                    
+                    
+                
+                Button(action: goodButtonPRessed, label: {
+                        Text("Good")
+                        .padding()
+                        .withDefaultButtonFormatting(color: .green)
+                    }
+                )
+                    .withPRessableStyle()
+                
                 
             }.padding(.bottom)
         }
         .onAppear(perform: lockScreenInLandscape)
-    }
+        }.ignoresSafeArea()
     
+    }
     
     
     
@@ -53,14 +76,24 @@ struct StudyPage: View {
     
     func goodButtonPRessed(){
         print("Good Button Pressed")
+        changeBackgroundColor(color: .green)
     }
     
-    func mediumButtonPRessed(){
-        print("Medium Button Pressed")
-    }
     
     func badButtonPRessed(){
-        print("Bad Button Pressed")
+        print("Try Again Button Pressed")
+        changeBackgroundColor(color: .red)
+    }
+    
+    
+    func changeBackgroundColor(color: Color){
+//        withAnimation {
+//            backgroundColor = color
+//            sleep(1)
+//            backgroundColor = .white
+//            selection += 1
+//        }
+        
     }
     
     func lockScreenInLandscape(){

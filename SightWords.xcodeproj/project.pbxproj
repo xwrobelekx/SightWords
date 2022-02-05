@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B7E97DC27ADFEA80014EFF2 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E97DB27ADFEA80014EFF2 /* CustomButtonStyle.swift */; };
+		3B7E97DF27AE0D1D0014EFF2 /* ViewExgtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E97DE27AE0D1D0014EFF2 /* ViewExgtensions.swift */; };
 		3BA92477279B1F4500741CCA /* SightWordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA92476279B1F4500741CCA /* SightWordsApp.swift */; };
 		3BA92479279B1F4500741CCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA92478279B1F4500741CCA /* ContentView.swift */; };
 		3BA9247B279B1F4600741CCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA9247A279B1F4600741CCA /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B7E97DB27ADFEA80014EFF2 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		3B7E97DE27AE0D1D0014EFF2 /* ViewExgtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExgtensions.swift; sourceTree = "<group>"; };
 		3BA92473279B1F4500741CCA /* SightWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA92476279B1F4500741CCA /* SightWordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightWordsApp.swift; sourceTree = "<group>"; };
 		3BA92478279B1F4500741CCA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +95,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B7E97D927ADFE340014EFF2 /* Study Feature */ = {
+			isa = PBXGroup;
+			children = (
+				3BA924B227A3094E00741CCA /* StudyViewModel.swift */,
+				3BA924A5279B391F00741CCA /* StudyPage.swift */,
+				3BA924B0279DF15100741CCA /* WordView.swift */,
+			);
+			path = "Study Feature";
+			sourceTree = "<group>";
+		};
+		3B7E97DA27ADFE590014EFF2 /* CustomViewStyles */ = {
+			isa = PBXGroup;
+			children = (
+				3B7E97DB27ADFEA80014EFF2 /* CustomButtonStyle.swift */,
+			);
+			path = CustomViewStyles;
+			sourceTree = "<group>";
+		};
+		3B7E97DD27AE0D060014EFF2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3B7E97DE27AE0D1D0014EFF2 /* ViewExgtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3BA9246A279B1F4500741CCA = {
 			isa = PBXGroup;
 			children = (
@@ -114,12 +144,12 @@
 		3BA92475279B1F4500741CCA /* SightWords */ = {
 			isa = PBXGroup;
 			children = (
+				3B7E97DD27AE0D060014EFF2 /* Extensions */,
+				3B7E97DA27ADFE590014EFF2 /* CustomViewStyles */,
 				3BA92476279B1F4500741CCA /* SightWordsApp.swift */,
-				3BA924B227A3094E00741CCA /* StudyViewModel.swift */,
+				3B7E97D927ADFE340014EFF2 /* Study Feature */,
 				3BA92478279B1F4500741CCA /* ContentView.swift */,
 				3BA924B427A319BB00741CCA /* DeckViewModel.swift */,
-				3BA924A5279B391F00741CCA /* StudyPage.swift */,
-				3BA924B0279DF15100741CCA /* WordView.swift */,
 				3BA924AA279B914500741CCA /* AddDeckView.swift */,
 				3BA924AC279DC31C00741CCA /* AddWord.swift */,
 				3BA9247A279B1F4600741CCA /* Assets.xcassets */,
@@ -297,6 +327,7 @@
 			files = (
 				3BA924A9279B41C700741CCA /* Deck+Convenience.swift in Sources */,
 				3BA92480279B1F4600741CCA /* Persistence.swift in Sources */,
+				3B7E97DC27ADFEA80014EFF2 /* CustomButtonStyle.swift in Sources */,
 				3BA92483279B1F4600741CCA /* SightWords.xcdatamodeld in Sources */,
 				3BA924AF279DC40E00741CCA /* SightWord+Convenience.swift in Sources */,
 				3BA92479279B1F4500741CCA /* ContentView.swift in Sources */,
@@ -304,6 +335,7 @@
 				3BA924B327A3094F00741CCA /* StudyViewModel.swift in Sources */,
 				3BA924B1279DF15100741CCA /* WordView.swift in Sources */,
 				3BA924AD279DC31C00741CCA /* AddWord.swift in Sources */,
+				3B7E97DF27AE0D1D0014EFF2 /* ViewExgtensions.swift in Sources */,
 				3BA924B527A319BB00741CCA /* DeckViewModel.swift in Sources */,
 				3BA924A6279B391F00741CCA /* StudyPage.swift in Sources */,
 				3BA924AB279B914500741CCA /* AddDeckView.swift in Sources */,
