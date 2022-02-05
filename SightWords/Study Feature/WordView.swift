@@ -12,13 +12,13 @@ struct WordView: View {
     
     var body: some View {
         Text(word.word ?? "..........")
-            .font(.title)
+            .font(.largeTitle).scaleEffect(1.5)
         
     }
 }
 
 struct WordView_Previews: PreviewProvider {
     static var previews: some View {
-        WordView(word: SightWord(word: "Example", deck: Deck(title: "KAmil")))
+        WordView(word: SightWord(word: "Example", deck: Deck(title: "Kamil")))
     }
 }
