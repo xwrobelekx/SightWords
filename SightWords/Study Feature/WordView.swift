@@ -11,8 +11,10 @@ struct WordView: View {
     var word : SightWord
     
     var body: some View {
+        ZStack{
         Text(word.word ?? "..........")
             .font(.largeTitle).scaleEffect(1.5)
+        }.ignoresSafeArea()
         
     }
 }

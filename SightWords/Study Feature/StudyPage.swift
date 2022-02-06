@@ -17,34 +17,42 @@ struct StudyPage: View {
 
     @StateObject var viewModel = StudyViewModel()
     var deck : Deck
-    
-    
-    
     @State var selection = 0
     @State var backgroundColor : Color = .white
     
     var body: some View {
         ZStack{
-        VStack(alignment: .center){
-            
-            Text(deck.title ?? "").bold()
-                .font(.title)
-            
-            Spacer()
-            TabView(selection: $selection){
-                if fetchRequest.wrappedValue.isEmpty {
-                    Text("This collection is empty.")
-                } else {
-                ForEach(fetchRequest.wrappedValue, id: \.dateCreated) { word in
-                    WordView(word: word)
+            VStack(alignment: .center){
+                
+                Text(deck.title ?? "")
+                    .font(.title2)
+                
+                Spacer()
+                TabView(selection: $selection){
+                    if fetchRequest.wrappedValue.isEmpty {
+                        Text("This collection is empty.")
+                    } else {
+                        
+                        ForEach(0..<fetchRequest.wrappedValue.count){ i in
+                           WordView(word:  fetchRequest.wrappedValue[i])
+                                .tag(fetchRequest.wrappedValue[i])
+                        }
+                        
+                        //                ForEach(fetchRequest.wrappedValue, id: \.dateCreated) { word in
+                        //
+                        //                    WordView(word: word)
+                        //                        .tag(<#T##tag: Hashable##Hashable#>)
+                        //
+                        //                }
+                        
+                    }
+                    
                 }
-
-                }
-            
-            }.tabViewStyle(PageTabViewStyle())
-            
-            HStack{
-                Button(action: badButtonPRessed, label: {
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                
+                
+                HStack{
+                    Button(action: badButtonPRessed, label: {
                     Text("Try again")
                         .padding()
                     .withDefaultButtonFormatting(color: .red)
@@ -64,9 +72,9 @@ struct StudyPage: View {
                 
                 
             }.padding(.bottom)
-        }
+        }.padding(.bottom)
         .onAppear(perform: lockScreenInLandscape)
-        }.ignoresSafeArea()
+        }
     
     }
     
@@ -77,12 +85,24 @@ struct StudyPage: View {
     func goodButtonPRessed(){
         print("Good Button Pressed")
         changeBackgroundColor(color: .green)
+        if selection != fetchRequest.wrappedValue.count {
+        selection += 1
+        } else {
+            //did all the words
+        }
+        print(selection)
     }
     
     
     func badButtonPRessed(){
         print("Try Again Button Pressed")
         changeBackgroundColor(color: .red)
+        if selection != fetchRequest.wrappedValue.count {
+        selection += 1
+        } else {
+            //did all the words
+        }
+        print(selection)
     }
     
     
