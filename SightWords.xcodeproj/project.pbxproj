@@ -11,7 +11,7 @@
 		3B7E97DF27AE0D1D0014EFF2 /* ViewExgtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E97DE27AE0D1D0014EFF2 /* ViewExgtensions.swift */; };
 		3B7E97E227AF63360014EFF2 /* DonePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E97E127AF63360014EFF2 /* DonePopUp.swift */; };
 		3BA92477279B1F4500741CCA /* SightWordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA92476279B1F4500741CCA /* SightWordsApp.swift */; };
-		3BA92479279B1F4500741CCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA92478279B1F4500741CCA /* ContentView.swift */; };
+		3BA92479279B1F4500741CCA /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA92478279B1F4500741CCA /* DeckView.swift */; };
 		3BA9247B279B1F4600741CCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA9247A279B1F4600741CCA /* Assets.xcassets */; };
 		3BA9247E279B1F4600741CCA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA9247D279B1F4600741CCA /* Preview Assets.xcassets */; };
 		3BA92480279B1F4600741CCA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA9247F279B1F4600741CCA /* Persistence.swift */; };
@@ -52,7 +52,7 @@
 		3B7E97E127AF63360014EFF2 /* DonePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonePopUp.swift; sourceTree = "<group>"; };
 		3BA92473279B1F4500741CCA /* SightWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA92476279B1F4500741CCA /* SightWordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightWordsApp.swift; sourceTree = "<group>"; };
-		3BA92478279B1F4500741CCA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3BA92478279B1F4500741CCA /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
 		3BA9247A279B1F4600741CCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BA9247D279B1F4600741CCA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3BA9247F279B1F4600741CCA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 				3B7E97DA27ADFE590014EFF2 /* CustomViewStyles */,
 				3BA92476279B1F4500741CCA /* SightWordsApp.swift */,
 				3B7E97D927ADFE340014EFF2 /* Study Feature */,
-				3BA92478279B1F4500741CCA /* ContentView.swift */,
+				3BA92478279B1F4500741CCA /* DeckView.swift */,
 				3BA924B427A319BB00741CCA /* DeckViewModel.swift */,
 				3BA9247A279B1F4600741CCA /* Assets.xcassets */,
 				3BA924A7279B41AB00741CCA /* Persistance */,
@@ -341,7 +341,7 @@
 				3B7E97DC27ADFEA80014EFF2 /* CustomButtonStyle.swift in Sources */,
 				3BA92483279B1F4600741CCA /* SightWords.xcdatamodeld in Sources */,
 				3BA924AF279DC40E00741CCA /* SightWord+Convenience.swift in Sources */,
-				3BA92479279B1F4500741CCA /* ContentView.swift in Sources */,
+				3BA92479279B1F4500741CCA /* DeckView.swift in Sources */,
 				3BA92477279B1F4500741CCA /* SightWordsApp.swift in Sources */,
 				3BA924B327A3094F00741CCA /* StudyViewModel.swift in Sources */,
 				3B7E97E227AF63360014EFF2 /* DonePopUp.swift in Sources */,

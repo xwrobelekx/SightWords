@@ -16,68 +16,63 @@ struct DeckView: View {
         animation: .default)
     
     private var decks: FetchedResults<Deck>
-    
     let viewModel = DeckViewModel()
-    
-
-    
     
     @State var showAddNewDeck = false
     @State var showAddWord = false
     
     
-    
     var body: some View {
         NavigationView {
             ZStack{
-            List {
-                ForEach(decks) { deck in
-                    NavigationLink {
-                        StudyPage(deck: deck)
-                    } label: {
-                        
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 300, height: 70)
-                            .foregroundColor(Color.green)
-                            .overlay(
-                        Text(deck.title ?? "empty")
-                            .foregroundColor(.white)
-                        )
+                List {
+                    ForEach(decks) { deck in
+                        NavigationLink {
+                            StudyPage(deck: deck)
+                        } label: {
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 300, height: 70)
+                                .foregroundColor(Color.green)
+                                .overlay(
+                                    Text(deck.title ?? "empty")
+                                        .foregroundColor(.white)
+                                )
+                        }
+                        .swipeActions(edge: .leading){
+                            Button(role: .cancel, action: {
+                                viewModel.deck = deck
+                                showAddWordPopUp()
+                            }, label: {
+                                Image(systemName: "plus.circle.fill")
+                            })
+                                .tint(.teal)
+                            
+                        }
                     }
-                    .swipeActions(edge: .leading){
-                        Button(role: .cancel, action: {
-                            viewModel.deck = deck
-                        showAddWordPopUp()
-                        }, label: {
-                            Image(systemName: "plus.circle.fill")
-                        })
-                            .tint(.teal)
-                        
+                    .onDelete(perform: deleteItems)
+                    
+                    
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
+                    ToolbarItem {
+                        Button(action: showPopUp) {
+                            Label("Add Item", systemImage: "plus")
+                        }
                     }
                 }
-                .onDelete(perform: deleteItems)
-
-                
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: showPopUp) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
                 AddDeckView(showView: $showAddNewDeck)
                 AddWord(showView: $showAddWord, deckViewModel: viewModel)
-        
+                
             }.onAppear(){
                 
                 decks.forEach{ deck in
                     print("✅ decks: \(deck.title)")
                 }
-              
+                
             }
         }
     }
@@ -89,8 +84,8 @@ struct DeckView: View {
     private func cool (){
         print("Cool")
     }
-
-   
+    
+    
     
     private func showPopUp(){
         withAnimation{
@@ -103,7 +98,7 @@ struct DeckView: View {
             showAddWord.toggle()
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { decks[$0] }.forEach(viewContext.delete)
@@ -112,12 +107,6 @@ struct DeckView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
