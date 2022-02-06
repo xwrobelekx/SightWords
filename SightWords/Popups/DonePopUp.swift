@@ -11,6 +11,7 @@ struct DonePopUp: View {
     @Binding var showDoneView: Bool
     //@State var allDone: Bool = true
     let viewModel : StudyViewModel?
+    @Binding var dismissManimSreen : Bool
     
     var body: some View {
         if showDoneView {
@@ -87,6 +88,9 @@ struct DonePopUp: View {
         print("Finish Button Pressed")
         withAnimation{
             showDoneView.toggle()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            dismissManimSreen.toggle()
+        }
         }
     }
     

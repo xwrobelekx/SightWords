@@ -14,7 +14,7 @@ struct StudyPage: View {
     
     var fetchRequest: FetchRequest<SightWord>
     
-
+    @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel = StudyViewModel()
     var deck : Deck
     @State var selection = 0
@@ -22,6 +22,7 @@ struct StudyPage: View {
     @State var showDoneView = false
     @State var showColorScreen = false
     @State var feedbackColor = Color.correct
+    @State var dismissScreen = false
     
     var body: some View {
         ZStack{
@@ -72,7 +73,7 @@ struct StudyPage: View {
                 
                 
         }.padding(.bottom)
-            DonePopUp(showDoneView: $showDoneView, viewModel: viewModel)
+            DonePopUp(showDoneView: $showDoneView, viewModel: viewModel, dismissManimSreen: $dismissScreen).onDisappear(perform: lockScreenInLandscape)
             ColorView(color: feedbackColor, showScreen: $showColorScreen)
         .onAppear(perform: lockScreenInLandscape)
         }
@@ -84,6 +85,7 @@ struct StudyPage: View {
     
     
     func goodButtonPRessed(){
+        Haptics.shared.play(.medium)
         print("Good Button Pressed")
         feedbackColor = .correct
         showFeedbackScreen()
@@ -94,6 +96,7 @@ struct StudyPage: View {
             //did all the words
             withAnimation{
                 showDoneView.toggle()
+                dismissScreen.toggle()
             }
         }
         print(selection)
@@ -102,6 +105,7 @@ struct StudyPage: View {
     
     
     func badButtonPRessed(){
+        Haptics.shared.play(.medium)
         print("Try Again Button Pressed")
         feedbackColor = .incorrect
         showFeedbackScreen()
@@ -112,6 +116,7 @@ struct StudyPage: View {
             //did all the words
             withAnimation{
                 showDoneView.toggle()
+                dismissScreen.toggle()
             }
         }
         print(selection)
@@ -130,6 +135,9 @@ struct StudyPage: View {
     }
     
     func lockScreenInLandscape(){
+        if dismissScreen {
+            presentationMode.wrappedValue.dismiss()
+        }
         //figure how to set the orientation to landscape
 //        fetchRequest.wrappedValue.forEach{ word in
 //            print("🟢 \(word.word)")
