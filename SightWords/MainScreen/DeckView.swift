@@ -25,6 +25,7 @@ struct DeckView: View {
     var body: some View {
         NavigationView {
             ZStack{
+                
                 List {
                     ForEach(decks) { deck in
                         NavigationLink {

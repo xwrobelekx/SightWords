@@ -20,6 +20,8 @@ struct StudyPage: View {
     @State var selection = 0
     @State var backgroundColor : Color = .white
     @State var showDoneView = false
+    @State var showColorScreen = false
+    @State var feedbackColor = Color.correct
     
     var body: some View {
         ZStack{
@@ -71,6 +73,7 @@ struct StudyPage: View {
                 
         }.padding(.bottom)
             DonePopUp(showDoneView: $showDoneView, viewModel: viewModel)
+            ColorView(color: feedbackColor, showScreen: $showColorScreen)
         .onAppear(perform: lockScreenInLandscape)
         }
     
@@ -82,7 +85,9 @@ struct StudyPage: View {
     
     func goodButtonPRessed(){
         print("Good Button Pressed")
-        changeBackgroundColor(color: .green)
+        feedbackColor = .correct
+        showFeedbackScreen()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
         if selection != fetchRequest.wrappedValue.count {
         selection += 1
         } else {
@@ -92,12 +97,15 @@ struct StudyPage: View {
             }
         }
         print(selection)
+        }
     }
     
     
     func badButtonPRessed(){
         print("Try Again Button Pressed")
-        changeBackgroundColor(color: .red)
+        feedbackColor = .incorrect
+        showFeedbackScreen()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
         if selection != fetchRequest.wrappedValue.count {
         selection += 1
         } else {
@@ -107,17 +115,18 @@ struct StudyPage: View {
             }
         }
         print(selection)
+        }
     }
     
     
-    func changeBackgroundColor(color: Color){
-//        withAnimation {
-//            backgroundColor = color
-//            sleep(1)
-//            backgroundColor = .white
-//            selection += 1
-//        }
-        
+    func showFeedbackScreen(){
+            showColorScreen.toggle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                withAnimation {
+                showColorScreen.toggle()
+            }
+            
+        }
     }
     
     func lockScreenInLandscape(){
