@@ -19,6 +19,7 @@ struct StudyPage: View {
     var deck : Deck
     @State var selection = 0
     @State var backgroundColor : Color = .white
+    @State var showDoneView = false
     
     var body: some View {
         ZStack{
@@ -37,13 +38,6 @@ struct StudyPage: View {
                            WordView(word:  fetchRequest.wrappedValue[i])
                                 .tag(fetchRequest.wrappedValue[i])
                         }
-                        
-                        //                ForEach(fetchRequest.wrappedValue, id: \.dateCreated) { word in
-                        //
-                        //                    WordView(word: word)
-                        //                        .tag(<#T##tag: Hashable##Hashable#>)
-                        //
-                        //                }
                         
                     }
                     
@@ -72,7 +66,11 @@ struct StudyPage: View {
                 
                 
             }.padding(.bottom)
+                
+                
+                
         }.padding(.bottom)
+            DonePopUp(showDoneView: $showDoneView, viewModel: viewModel)
         .onAppear(perform: lockScreenInLandscape)
         }
     
@@ -89,6 +87,9 @@ struct StudyPage: View {
         selection += 1
         } else {
             //did all the words
+            withAnimation{
+                showDoneView.toggle()
+            }
         }
         print(selection)
     }
@@ -101,6 +102,9 @@ struct StudyPage: View {
         selection += 1
         } else {
             //did all the words
+            withAnimation{
+                showDoneView.toggle()
+            }
         }
         print(selection)
     }
