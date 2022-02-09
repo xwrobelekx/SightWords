@@ -29,7 +29,7 @@ struct DeckView: View {
                 List {
                     ForEach(decks) { deck in
                         NavigationLink {
-                            StudyPage(deck: deck)
+                            StudyPage(deck: deck, request: viewModel.request(deck: deck))
                         } label: {
                             
                             RoundedRectangle(cornerRadius: 10)

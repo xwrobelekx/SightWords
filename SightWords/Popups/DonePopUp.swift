@@ -88,17 +88,23 @@ struct DonePopUp: View {
         print("Finish Button Pressed")
         withAnimation{
             showDoneView.toggle()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            dismissManimSreen.toggle()
-        }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                dismissManimSreen.toggle()
+            }
         }
     }
     
     
     func studyMore(){
         print("Study More Button Pressed")
+        
+        withAnimation{
+            showDoneView.toggle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                dismissManimSreen.toggle()
+            }
+        }
     }
-    
     
 }
 

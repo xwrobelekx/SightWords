@@ -12,11 +12,11 @@ import CoreData
 
 extension SightWord {
     
-    convenience init(word: String, deck: Deck, date: Date = Date(), context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){
+    convenience init(word: String, deck: Deck, wrongCount: Int = 0, date: Date = Date(), context: NSManagedObjectContext = PersistenceController.shared.container.viewContext){
         self.init(context: context)
         self.word = word
         self.deck = deck
+        self.wrongCount = Int64(wrongCount)
         self.dateCreated = date
-    
     }
 }

@@ -12,9 +12,13 @@ struct WordView: View {
     
     var body: some View {
         ZStack{
+            VStack{
         Text(word.word ?? "..........")
             .font(.largeTitle).scaleEffect(1.5)
+                Text("wrong count: \(word.wrongCount)")
+            }
         }.ignoresSafeArea()
+            
         
     }
 }

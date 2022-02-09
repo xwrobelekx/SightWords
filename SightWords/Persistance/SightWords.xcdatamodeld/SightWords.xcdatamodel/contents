@@ -9,10 +9,11 @@
         <attribute name="dateCreated" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="numberOfShows" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="word" attributeType="String"/>
+        <attribute name="wrongCount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="deck" maxCount="1" deletionRule="Nullify" destinationEntity="Deck" inverseName="words" inverseEntity="Deck"/>
     </entity>
     <elements>
         <element name="Deck" positionX="-10044.71594238281" positionY="-2079.215576171875" width="128" height="88"/>
-        <element name="SightWord" positionX="-9706.301086425781" positionY="-2155.284881591797" width="128" height="89"/>
+        <element name="SightWord" positionX="-9706.301086425781" positionY="-2155.284881591797" width="128" height="104"/>
     </elements>
 </model>
