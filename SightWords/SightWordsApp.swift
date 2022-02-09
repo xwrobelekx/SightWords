@@ -16,7 +16,7 @@ struct SightWordsApp: App {
         WindowGroup {
             //StudyPage(word: SightWord())
         
-            DeckView()
+            DeckView(viewModel: DeckViewModel())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

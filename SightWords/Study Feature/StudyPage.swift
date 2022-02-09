@@ -15,7 +15,7 @@ struct StudyPage: View {
     var fetchRequest: FetchRequest<SightWord>
     
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var viewModel = StudyViewModel()
+    @StateObject var viewModel = DeckViewModel()
     var deck : Deck
     @State var selection = 0
     @State var backgroundColor : Color = .white
@@ -123,6 +123,7 @@ struct StudyPage: View {
         let mistakenWord = fetchRequest.wrappedValue[selection]
         mistakenWord.wrongCount += 1
         PersistenceController.shared.save()
+        viewModel.wrongCount += 1
         
         feedbackColor = .incorrect
         showFeedbackScreen()

@@ -16,7 +16,7 @@ struct DeckView: View {
         animation: .default)
     
     private var decks: FetchedResults<Deck>
-    let viewModel = DeckViewModel()
+    @State var viewModel : DeckViewModel
     
     @State var showAddNewDeck = false
     @State var showAddWord = false
@@ -25,7 +25,6 @@ struct DeckView: View {
     var body: some View {
         NavigationView {
             ZStack{
-                
                 List {
                     ForEach(decks) { deck in
                         NavigationLink {
@@ -53,7 +52,6 @@ struct DeckView: View {
                     }
                     .onDelete(perform: deleteItems)
                     
-                    
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -67,12 +65,27 @@ struct DeckView: View {
                 }
                 AddDeckView(showView: $showAddNewDeck)
                 AddWord(showView: $showAddWord, deckViewModel: viewModel)
+                if let deck = viewModel.deck{
+                NavigationLink(destination: StudyPage(deck: deck, request: viewModel.request(deck: deck)), isActive: $viewModel.studyAgain) {
+                    
+                    
+                }
+                }
                 
             }.onAppear(){
                 
                 decks.forEach{ deck in
                     print("✅ decks: \(deck.title)")
                 }
+                
+                
+//                if viewModel.studyAgain {
+//                    NavigationLink {
+//                        StudyPage(deck: viewModel.deck!, request: viewModel.requestForWrongWords(deck: viewModel.deck!))
+//                    } label: {
+//                        Text("Study Again")
+//                    }
+//                }
                 
             }
         }
@@ -109,8 +122,8 @@ struct DeckView: View {
 }
 
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        DeckView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DeckView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}
