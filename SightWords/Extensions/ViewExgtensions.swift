@@ -12,8 +12,8 @@ import SwiftUI
 
 
 extension View {
-    func withDefaultButtonFormatting(color: Color) -> some View {
-        modifier(ButtonViewModifier(color: color))
+    func withDefaultButtonFormatting(color: Color, width: CGFloat = 135, height: CGFloat = 40) -> some View {
+        modifier(ButtonViewModifier(color: color, width: width, height: height))
     }
     
     

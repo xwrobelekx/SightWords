@@ -20,21 +20,21 @@ class SightWordsTests: XCTestCase {
 
 
     
-    
-    func test_DeckView_showAddWord_False(){
-        let sut = DeckView()
-        XCTAssertFalse(sut.showAddWord, "❌ Failed on line: \(#line), \(#function)")
-    }
-    
-    func test_DeckView_showAddNewDeck_False(){
-        let sut = DeckView()
-        XCTAssertFalse(sut.showAddNewDeck, "❌ Failed on line: \(#line), \(#function)")
-    }
-    
-    func test_DeckView_ViewModel_NotNil(){
-        let sut = DeckView()
-        XCTAssertNotNil(sut.viewModel, "❌ Failed on line: \(#line), \(#function)")
-    }
+//    
+//    func test_DeckView_showAddWord_False(){
+//        let sut = DeckView()
+//        XCTAssertFalse(sut.showAddWord, "❌ Failed on line: \(#line), \(#function)")
+//    }
+//    
+//    func test_DeckView_showAddNewDeck_False(){
+//        let sut = DeckView()
+//        XCTAssertFalse(sut.showAddNewDeck, "❌ Failed on line: \(#line), \(#function)")
+//    }
+//    
+//    func test_DeckView_ViewModel_NotNil(){
+//        let sut = DeckView()
+//        XCTAssertNotNil(sut.viewModel, "❌ Failed on line: \(#line), \(#function)")
+//    }
     
     
     //first i cant call showAddWordPopUp() because of private protections level

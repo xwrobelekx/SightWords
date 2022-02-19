@@ -28,10 +28,19 @@ struct StudyPage: View {
         ZStack{
             VStack(alignment: .center){
                 
-                Text(deck.title ?? "")
-                    .font(.title2)
+                HStack(){
+                Button(action: backButtonPressed, label: {
+                        Text("Back")
+                        .padding()
+                        .withDefaultButtonFormatting(color: .blue, width: 80, height: 30)
+                    }
+                )
+                    .withPRessableStyle()
+                    .padding()
+                    Spacer()
+                }
                 
-                Spacer()
+                
                 TabView(selection: $selection){
                     if fetchRequest.wrappedValue.isEmpty {
                         Text("This collection is empty.")
@@ -49,6 +58,7 @@ struct StudyPage: View {
                 .disabled(true)
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 
+                Spacer()
                 
                 HStack{
                     Button(action: badButtonPressed, label: {
@@ -77,11 +87,14 @@ struct StudyPage: View {
         }.padding(.bottom)
             DonePopUp(showDoneView: $showDoneView, viewModel: viewModel, dismissManimSreen: $dismissScreen).onDisappear(perform: dismissStudyPage)
             ColorView(color: feedbackColor, showScreen: $showColorScreen)
-        }
+        }.navigationBarHidden(true)
     
     }
     
     
+    func backButtonPressed(){
+        presentationMode.wrappedValue.dismiss()
+    }
     
     
     
@@ -160,6 +173,9 @@ struct StudyPage: View {
         if dismissScreen {
             presentationMode.wrappedValue.dismiss()
         }
+        #warning("Check this")
+        //reload the page with new data when popup is dismissed
+       // self.init(deck: viewModel.deck, request: viewModel.requestForWrongWords(deck: viewModel.deck!))
     }
     
     

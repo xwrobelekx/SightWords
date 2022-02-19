@@ -103,16 +103,21 @@ struct DonePopUp: View {
         
         withAnimation{
             showDoneView.toggle()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                dismissManimSreen.toggle()
-                viewModel.wrongCount = 0
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    if viewModel.wrongCount != 0 {
-                    viewModel.studyAgain = true
-                    }
-                }
-            }
+            
+            //reload Study page with wrong words
+            
+            
+            
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+//                dismissManimSreen.toggle()
+//                viewModel.wrongCount = 0
+//
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//                    if viewModel.wrongCount != 0 {
+//                    viewModel.studyAgain = true
+//                    }
+//                }
+//            }
         }
         
     }

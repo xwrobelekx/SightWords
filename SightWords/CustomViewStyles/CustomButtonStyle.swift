@@ -26,10 +26,12 @@ struct CustomButtonStyle: ButtonStyle {
 
 struct ButtonViewModifier: ViewModifier {
     let color: Color
+    let width: CGFloat
+    let height: CGFloat
     
     func body(content: Content) -> some View {
         content
-            .frame(width: 135, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .frame(width: width, height: height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             .font(.title3)
             .foregroundColor(.white)
             .background(color)

@@ -13,12 +13,36 @@ struct WordView: View {
     var body: some View {
         ZStack{
             VStack{
-        Text(word.word ?? "..........")
-            .font(.largeTitle).scaleEffect(1.5)
-                Text("wrong count: \(word.wrongCount)")
+                HStack{
+                    Text(word.deck?.title! ?? "")
+                        .font(.title2)
+                        .padding()
+                    Spacer()
+                    
+                Circle()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(word.wrongCount == 0 ? .green
+                                     : .orange)
+                    .overlay(
+                        Text("\(word.wrongCount)")
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.white)
+                    )
+                    .padding()
+                }
+                
+                Spacer()
+                
+                Text(word.word ?? "..........")
+                    .font(.largeTitle).scaleEffect(1.5)
+                
+                Spacer()
+                
+              
             }
         }.ignoresSafeArea()
-            
+        
         
     }
 }
