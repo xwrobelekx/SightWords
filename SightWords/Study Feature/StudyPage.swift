@@ -55,13 +55,13 @@ struct StudyPage: View {
                     }
                     
                 }
-                .disabled(true)
+                //.disabled(true) //when this is on it locks the swipe but it also locks the speach
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 
                 Spacer()
                 
                 HStack{
-                    Button(action: badButtonPressed, label: {
+                    Button(action: tryAgainButtonPressed, label: {
                     Text("Try again")
                         .padding()
                     .withDefaultButtonFormatting(color: .red)
@@ -104,10 +104,11 @@ struct StudyPage: View {
         print("good  selection: \(selection)")
         
         let word = fetchRequest.wrappedValue[selection]
-        if word.wrongCount >= 1 {
+//        if word.wrongCount >= 1 {
             word.wrongCount -= 1
             PersistenceController.shared.save()
-        }
+            viewModel.wrongCount -= 1
+        //}
         
         
         feedbackColor = .correct
@@ -127,7 +128,7 @@ struct StudyPage: View {
     }
     
     
-    func badButtonPressed(){
+    func tryAgainButtonPressed(){
         Haptics.shared.play(.medium)
         print("Try Again Button Pressed")
         

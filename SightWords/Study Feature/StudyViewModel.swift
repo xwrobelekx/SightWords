@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import SwiftUI
+import AVFoundation
 
 
 
@@ -31,7 +32,16 @@ class StudyViewModel: ObservableObject {
 //    }
     
     
-    
+    func speak(word: String, language: String = "en-US"){
+        
+        let uttersnce = AVSpeechUtterance(string: word)
+        uttersnce.voice = AVSpeechSynthesisVoice(language: language)
+        uttersnce.rate = 0.5
+        
+        let synthetizer = AVSpeechSynthesizer()
+        synthetizer.speak(uttersnce)
+        
+    }
     
     
     

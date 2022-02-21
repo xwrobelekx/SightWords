@@ -29,7 +29,7 @@ class DeckViewModel : ObservableObject {
     func requestForWrongWords(deck: Deck) -> FetchRequest<SightWord> {
         let request : NSFetchRequest<SightWord> = SightWord.fetchRequest()
         //        request.fetchLimit = 30
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \SightWord.dateCreated, ascending: false)]
+        request.sortDescriptors = []//[NSSortDescriptor(keyPath: \SightWord.dateCreated, ascending: false)]
         request.predicate = NSPredicate(format: "deck == %@ AND wrongCount >= %1", deck, 1)
         return FetchRequest<SightWord>(fetchRequest: request, animation: .easeIn(duration: 1.0))
         
