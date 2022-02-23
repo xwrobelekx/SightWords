@@ -49,7 +49,6 @@ struct WordView: View {
                         Image(systemName: "speaker.wave.2.circle")
                         .font(.largeTitle)
                         .padding()
-                        //.withDefaultButtonFormatting(color: .green)
                     }
                 )
                     .withPRessableStyle()

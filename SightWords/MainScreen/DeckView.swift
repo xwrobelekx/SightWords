@@ -21,23 +21,46 @@ struct DeckView: View {
     @State var showAddNewDeck = false
     @State var showAddWord = false
     
+    let layout = [
+        GridItem(.adaptive(minimum: 300)),
+        //GridItem(.adaptive(minimum: 140))
+    ]
+    
     
     var body: some View {
         NavigationView {
             ZStack{
-                List {
+                ScrollView{
+                LazyVGrid(columns: layout, spacing: 20) {
                     ForEach(decks) { deck in
                         NavigationLink {
                             StudyPage(deck: deck, request: viewModel.request(deck: deck))
                         } label: {
                             
+                            
+                                
+                            
+                            
                             RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 300, height: 70)
+                                .frame(height: 80)
                                 .foregroundColor(Color.green)
                                 .overlay(
-                                    Text(deck.title ?? "empty")
-                                        .foregroundColor(.white)
+                                    HStack{
+                                        Button(action: showAddWordPopUp) {
+                                            Label("", systemImage: "plus.circle")
+                                                .withDefaultButtonFormatting(color: .green, width: 100, height: 50)
+                                            
+                                        }.withPRessableStyle()
+                                        
+                                        Spacer()
+                                        
+                                        Text(deck.title ?? "empty")
+                                            .font(.title)
+                                            .foregroundColor(.white)
+                                            .padding()
+                                    }
                                 )
+                            
                         }
                         .swipeActions(edge: .leading){
                             Button(role: .cancel, action: {
@@ -53,14 +76,19 @@ struct DeckView: View {
                     .onDelete(perform: deleteItems)
                     
                 }
+                }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         EditButton()
+                            .withDefaultButtonFormatting(color: .yellow, width: 65, height: 35)
+                            .withPRessableStyle()
                     }
                     ToolbarItem {
                         Button(action: showPopUp) {
-                            Label("Add Item", systemImage: "plus")
-                        }
+                            Label("Add Item", systemImage: "plus.circle")
+                                .withDefaultButtonFormatting(color: .green, width: 50, height: 35)
+                                
+                        }.withPRessableStyle()
                     }
                 }
                 AddDeckView(showView: $showAddNewDeck)

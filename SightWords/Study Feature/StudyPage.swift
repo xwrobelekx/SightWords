@@ -30,16 +30,17 @@ struct StudyPage: View {
                 
                 HStack(){
                 Button(action: backButtonPressed, label: {
+                    HStack{
+                        Image(systemName: "chevron.backward")
                         Text("Back")
-                        .padding()
-                        .withDefaultButtonFormatting(color: .blue, width: 80, height: 30)
+                    }
+                        .withDefaultButtonFormatting(color: .blue, width: 75, height: 30)
                     }
                 )
                     .withPRessableStyle()
                     .padding()
                     Spacer()
                 }
-                
                 
                 TabView(selection: $selection){
                     if fetchRequest.wrappedValue.isEmpty {
@@ -51,9 +52,7 @@ struct StudyPage: View {
                                 .tag(fetchRequest.wrappedValue[i])
                                 
                         }
-                        
                     }
-                    
                 }
                 //.disabled(true) //when this is on it locks the swipe but it also locks the speach
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -153,9 +152,6 @@ struct StudyPage: View {
         }
         print(selection)
         }
-        
-        
-        
         
     }
     
