@@ -11,6 +11,7 @@ struct AddDeckView: View {
     
     @Binding var showView : Bool
     @State var deckTitle : String = ""
+    @State var language : String = "en-US"
     
     var body: some View {
         // Circle()
@@ -24,6 +25,12 @@ struct AddDeckView: View {
                     .overlay(
                         
                         VStack{
+                            Picker("", selection: $language) {
+                                ForEach(Languages.allCases, id: \.self){ lang in
+                                    Text("\(lang.rawValue)").tag(lang.rawValue)
+                                }
+                            }
+                            
                             Text("Add Deck")
                                 .foregroundColor(.white)
                                 .font(.title)
@@ -32,6 +39,8 @@ struct AddDeckView: View {
                             TextField("type the name of new collection", text: $deckTitle)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .padding()
+                            
+                            
                             
                             Button(action: addItem, label: {
                                 Text(deckTitle == "" ? "Cancel" : "Save")
@@ -53,7 +62,7 @@ struct AddDeckView: View {
    private func addItem() {
         withAnimation {
             if deckTitle != "" {
-            let _ = Deck(title: deckTitle)
+            let _ = Deck(title: deckTitle, language: language)
             PersistenceController.shared.save()
             }
             deckTitle = ""

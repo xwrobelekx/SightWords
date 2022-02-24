@@ -36,11 +36,7 @@ struct DeckView: View {
                         NavigationLink {
                             StudyPage(deck: deck, request: viewModel.request(deck: deck))
                         } label: {
-                            
-                            
-                                
-                            
-                            
+
                             RoundedRectangle(cornerRadius: 10)
                                 .frame(height: 80)
                                 .foregroundColor(Color.green)

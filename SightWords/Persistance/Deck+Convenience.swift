@@ -12,9 +12,10 @@ import CoreData
 
 extension Deck {
     
-    convenience init(title: String, created: Date = Date(), context: NSManagedObjectContext =  PersistenceController.shared.container.viewContext){
+    convenience init(title: String, language: String, created: Date = Date(), context: NSManagedObjectContext =  PersistenceController.shared.container.viewContext){
         self.init(context: context)
         self.dateCreated = created
+        self.language = language
         self.title = title
     }
 }

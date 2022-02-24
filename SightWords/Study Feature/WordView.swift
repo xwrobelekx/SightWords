@@ -62,12 +62,12 @@ struct WordView: View {
     }
     private func speak(){
         print("speak pressed")
-        vm.speak(word: word.word ?? "")
+        vm.speak(word: word.word ?? "", language: word.deck?.language ?? "en-US")
     }
 }
 
 struct WordView_Previews: PreviewProvider {
     static var previews: some View {
-        WordView(word: SightWord(word: "Examplesdfkkmmsffmkdkmdlsmflmldmflvmldkfsmfl", deck: Deck(title: "Kamil")))
+        WordView(word: SightWord(word: "Examplesdfkkmmsffmkdkmdlsmflmldmflvmldkfsmfl", deck: Deck(title: "Kamil.", language: "pl")))
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B6627A527C5D7E0006F1146 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6627A427C5D7E0006F1146 /* Languages.swift */; };
 		3B7E97DC27ADFEA80014EFF2 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E97DB27ADFEA80014EFF2 /* CustomButtonStyle.swift */; };
 		3B7E97DF27AE0D1D0014EFF2 /* ViewExgtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E97DE27AE0D1D0014EFF2 /* ViewExgtensions.swift */; };
 		3B7E97E227AF63360014EFF2 /* DonePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E97E127AF63360014EFF2 /* DonePopUp.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B6627A427C5D7E0006F1146 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		3B7E97DB27ADFEA80014EFF2 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		3B7E97DE27AE0D1D0014EFF2 /* ViewExgtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExgtensions.swift; sourceTree = "<group>"; };
 		3B7E97E127AF63360014EFF2 /* DonePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonePopUp.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				3B7E97E527B0519A0014EFF2 /* AppColors.swift */,
 				3B7E97E927B05F7C0014EFF2 /* Haptics.swift */,
+				3B6627A427C5D7E0006F1146 /* Languages.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				3BA924AF279DC40E00741CCA /* SightWord+Convenience.swift in Sources */,
 				3BA92479279B1F4500741CCA /* DeckView.swift in Sources */,
 				3BA92477279B1F4500741CCA /* SightWordsApp.swift in Sources */,
+				3B6627A527C5D7E0006F1146 /* Languages.swift in Sources */,
 				3B7E97E827B054070014EFF2 /* ColorView.swift in Sources */,
 				3BA924B327A3094F00741CCA /* StudyViewModel.swift in Sources */,
 				3B7E97E227AF63360014EFF2 /* DonePopUp.swift in Sources */,
