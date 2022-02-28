@@ -57,7 +57,7 @@ struct AddWord: View {
         withAnimation {
             if word != "" {
                 if let deck = deckViewModel.deck {
-                let newWord = SightWord(word: word, deck: deck)
+                let _ = SightWord(word: word, deck: deck)
             PersistenceController.shared.save()
                 }
             }
