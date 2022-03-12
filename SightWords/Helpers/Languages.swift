@@ -12,6 +12,7 @@ import Foundation
 enum Languages: String, Equatable, CaseIterable {
     case English = "en-US"
     case Polish = "pl"
+    case Spanish = "es-MX"
     
 }
 

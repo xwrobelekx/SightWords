@@ -18,10 +18,14 @@ struct AddDeckView: View {
         if showView {
             ZStack(alignment: .center){
                 Color.black.opacity(0.7)
-                
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 300, height: 250)
-                    .foregroundColor(.green)
+                    .foregroundColor(.black)
+                    .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(AngularGradient.gradient, lineWidth: 4)
+                    .frame(width: 300, height: 250)
+                    //.foregroundColor(.black)
                     .overlay(
                         
                         VStack{
@@ -52,6 +56,7 @@ struct AddDeckView: View {
                                 .cornerRadius(.infinity)
                             
                         })
+                )
                 
                 
             }.ignoresSafeArea()

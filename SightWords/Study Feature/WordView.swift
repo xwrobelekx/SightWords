@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WordView: View {
     var word : SightWord
-    let vm = StudyViewModel()
+    @EnvironmentObject private var viewModel: StudyViewModel
     
     var body: some View {
         ZStack{
@@ -32,9 +32,7 @@ struct WordView: View {
                     )
                     .padding()
                 }
-                
-             
-                
+                                
                 Spacer()
                 
                 Text(word.word ?? "..........")
@@ -62,7 +60,7 @@ struct WordView: View {
     }
     private func speak(){
         print("speak pressed")
-        vm.speak(word: word.word ?? "", language: word.deck?.language ?? "en-US")
+        viewModel.speak(word: word.word ?? "", language: word.deck?.language ?? "en-US")
     }
 }
 

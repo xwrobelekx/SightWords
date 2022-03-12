@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B213B0127DCFD6200315567 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B213B0027DCFD6200315567 /* ColorExtension.swift */; };
+		3B213B0327DCFE2900315567 /* StudyPreviewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B213B0227DCFE2900315567 /* StudyPreviewPage.swift */; };
+		3B213B0527DD1D3C00315567 /* gradientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B213B0427DD1D3C00315567 /* gradientExtension.swift */; };
 		3B6627A527C5D7E0006F1146 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6627A427C5D7E0006F1146 /* Languages.swift */; };
 		3B7E97DC27ADFEA80014EFF2 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E97DB27ADFEA80014EFF2 /* CustomButtonStyle.swift */; };
 		3B7E97DF27AE0D1D0014EFF2 /* ViewExgtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E97DE27AE0D1D0014EFF2 /* ViewExgtensions.swift */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B213B0027DCFD6200315567 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		3B213B0227DCFE2900315567 /* StudyPreviewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPreviewPage.swift; sourceTree = "<group>"; };
+		3B213B0427DD1D3C00315567 /* gradientExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradientExtension.swift; sourceTree = "<group>"; };
 		3B6627A427C5D7E0006F1146 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		3B7E97DB27ADFEA80014EFF2 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		3B7E97DE27AE0D1D0014EFF2 /* ViewExgtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExgtensions.swift; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 			children = (
 				3BA924B227A3094E00741CCA /* StudyViewModel.swift */,
 				3BA924A5279B391F00741CCA /* StudyPage.swift */,
+				3B213B0227DCFE2900315567 /* StudyPreviewPage.swift */,
 				3BA924B0279DF15100741CCA /* WordView.swift */,
 			);
 			path = "Study Feature";
@@ -127,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				3B7E97DE27AE0D1D0014EFF2 /* ViewExgtensions.swift */,
+				3B213B0027DCFD6200315567 /* ColorExtension.swift */,
+				3B213B0427DD1D3C00315567 /* gradientExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -373,6 +382,7 @@
 				3BA92479279B1F4500741CCA /* DeckView.swift in Sources */,
 				3BA92477279B1F4500741CCA /* SightWordsApp.swift in Sources */,
 				3B6627A527C5D7E0006F1146 /* Languages.swift in Sources */,
+				3B213B0527DD1D3C00315567 /* gradientExtension.swift in Sources */,
 				3B7E97E827B054070014EFF2 /* ColorView.swift in Sources */,
 				3BA924B327A3094F00741CCA /* StudyViewModel.swift in Sources */,
 				3B7E97E227AF63360014EFF2 /* DonePopUp.swift in Sources */,
@@ -383,6 +393,8 @@
 				3B7E97E627B0519A0014EFF2 /* AppColors.swift in Sources */,
 				3BA924A6279B391F00741CCA /* StudyPage.swift in Sources */,
 				3BA924AB279B914500741CCA /* AddDeckView.swift in Sources */,
+				3B213B0127DCFD6200315567 /* ColorExtension.swift in Sources */,
+				3B213B0327DCFE2900315567 /* StudyPreviewPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

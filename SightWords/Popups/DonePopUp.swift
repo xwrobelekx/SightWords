@@ -9,9 +9,9 @@ import SwiftUI
 
 struct DonePopUp: View {
     @Binding var showDoneView: Bool
-    //@State var allDone: Bool = true
-    let viewModel : DeckViewModel
     @Binding var dismissManimSreen : Bool
+    @EnvironmentObject private var viewModel: StudyViewModel
+
     
     var body: some View {
         if showDoneView {
@@ -20,7 +20,12 @@ struct DonePopUp: View {
                 
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 320, height: 350)
-                    .foregroundColor(.yellow)
+                    .foregroundColor(.black)
+                    .overlay(
+                
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(AngularGradient.gradient, lineWidth: 4)
+                    .frame(width: 320, height: 350)
                     .overlay(
                         
                         VStack(spacing: 20){
@@ -43,7 +48,7 @@ struct DonePopUp: View {
                             
                             if viewModel.wrongCount > 0{
                                 
-                                Text("You got \(viewModel.wrongCount ?? 0) words wrong. \n Would you like to repeat the words you may still have trouble with?")
+                                Text("You got \(viewModel.wrongCount ) words wrong. \n Would you like to repeat the words you may still have trouble with?")
                                     .font(.subheadline)
                                     .multilineTextAlignment(.center)
                                 
@@ -77,7 +82,7 @@ struct DonePopUp: View {
                             
                             
                         }.padding()
-                    )
+                    ))
                 
                 
             }.ignoresSafeArea()
