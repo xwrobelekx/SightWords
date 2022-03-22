@@ -64,4 +64,19 @@ struct PersistenceController {
             }
         }
     }
+    
+    func delete(deck: Deck){
+        print("Deleting: words")
+        deck.words?.forEach{word in
+            container.viewContext.delete(word as! NSManagedObject)
+        }
+        container.viewContext.delete(deck)
+        save()
+    }
+    
+    func delete(word: SightWord){
+        print("deleting word \(word.word)")
+        container.viewContext.delete(word)
+        save()
+    }
 }

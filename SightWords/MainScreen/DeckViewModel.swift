@@ -35,6 +35,9 @@ class DeckViewModel : ObservableObject {
         
     }
     
+    func delete(deck: Deck) {
+        
+    }
     
     
 }

@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 
-
 struct StudyPage: View {
     
     @Environment(\.presentationMode) var presentationMode
@@ -33,8 +32,7 @@ struct StudyPage: View {
                             Text("Back")
                         }
                         .withDefaultButtonFormatting(color: .blue, width: 75, height: 30)
-                    }
-                    )
+                    })
                         .withPRessableStyle()
                         .padding()
                     Spacer()
@@ -54,7 +52,6 @@ struct StudyPage: View {
                 }
                 //.disabled(true) //when this is on it locks the swipe but it also locks the speach
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                
                 
                 Spacer()
                 
@@ -82,7 +79,7 @@ struct StudyPage: View {
                     
                 }.padding(.bottom)
                 
-        }.padding(.bottom)
+            }.padding(.bottom)
             DonePopUp(showDoneView: $showDoneView, dismissManimSreen: $dismissScreen).onDisappear(perform: dismissStudyPage)
             ColorView(color: feedbackColor, showScreen: $showColorScreen)
         }.navigationBarHidden(true)
@@ -136,25 +133,25 @@ struct StudyPage: View {
         feedbackColor = .incorrect
         showFeedbackScreen()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-        if selection != fetchRequest.wrappedValue.count - 1 {
-        selection += 1
-        } else {
-            //did all the words
-            withAnimation{
-                showDoneView.toggle()
-                dismissScreen.toggle()
+            if selection != fetchRequest.wrappedValue.count - 1 {
+                selection += 1
+            } else {
+                //did all the words
+                withAnimation{
+                    showDoneView.toggle()
+                    dismissScreen.toggle()
+                }
             }
-        }
-        print(selection)
+            print(selection)
         }
         
     }
     
     
     func showFeedbackScreen(){
-            showColorScreen.toggle()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                withAnimation {
+        showColorScreen.toggle()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            withAnimation {
                 showColorScreen.toggle()
             }
             
@@ -165,16 +162,16 @@ struct StudyPage: View {
         if dismissScreen {
             presentationMode.wrappedValue.dismiss()
         }
-        #warning("Check this")
+#warning("Check this")
         //reload the page with new data when popup is dismissed
-       // self.init(deck: viewModel.deck, request: viewModel.requestForWrongWords(deck: viewModel.deck!))
+        // self.init(deck: viewModel.deck, request: viewModel.requestForWrongWords(deck: viewModel.deck!))
     }
     
-//    
-//    init(deck: Deck, request: FetchRequest<SightWord>){
-//        fetchRequest = request
-//        self.deck = deck
-//    }
+    //
+    //    init(deck: Deck, request: FetchRequest<SightWord>){
+    //        fetchRequest = request
+    //        self.deck = deck
+    //    }
     
 }
 

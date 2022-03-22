@@ -18,8 +18,21 @@ struct StudyPreviewPage: View {
                 
                 Text(viewModel.deck?.title ?? "empty")
                     .font(.largeTitle)
-                Text("Language: \(viewModel.deck?.language ?? "empty")")
-                    .font(.title2)
+                
+                switch viewModel.deck?.language {
+                case "en-US" :
+                    Text("Language: English - US")
+                        .font(.title2)
+                case "es" :
+                    Text("Language: Spanish")
+                        .font(.title2)
+                case "pl" :
+                    Text("Language: Polish")
+                        .font(.title2)
+                default:
+                    Text("Language: Unknown")
+                        .font(.title2)
+                }
                 Spacer()
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(AngularGradient.gradient, lineWidth: 4)

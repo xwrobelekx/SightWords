@@ -13,6 +13,7 @@ extension Color {
     static let backgroundColor = Color("background")
     static let correct = Color("correct")
     static let incorrect = Color("incorrect")
+    static let popupBackground = Color("popupBackground")
     
 }
 

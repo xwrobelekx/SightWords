@@ -13,13 +13,12 @@ struct DeckView: View {
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Deck.dateCreated, ascending: true)],
-        animation: .default)
+        animation: .default) private var decks: FetchedResults<Deck>
     
-    private var decks: FetchedResults<Deck>
     @State var viewModel : DeckViewModel
     
     @State var showAddNewDeck = false
-    //    @State var showAddWord = false
+    @State var editDecks = false
     
     
     let layout = [
@@ -37,11 +36,11 @@ struct DeckView: View {
                             NavigationLink {
                                 StudyPreviewPage().environmentObject(StudyViewModel(deck: deck))
                             } label: {
-                                
+                                ZStack {
+                                    
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(AngularGradient.gradient, lineWidth: 4)
                                     .frame(height: 150)
-                                //.foregroundColor(Color.green)
                                     .overlay(
                                         VStack{
                                             Text(deck.title ?? "empty")
@@ -51,6 +50,14 @@ struct DeckView: View {
                                         }
                                     )
                                     .padding()
+        
+                                    CloseCircle(showXButton: $editDecks).position(x: 170, y: 18)
+                                        .onTapGesture {
+                                            //deletee
+                                            print("💧")
+                                            delete(deck: deck)
+                                        }
+                                }
                                 
                             }
                         }
@@ -61,25 +68,24 @@ struct DeckView: View {
                     ToolbarItem(placement: .navigationBarTrailing){
                         Button(action: showPopUp) {
                             Label("Add Item", systemImage: "plus.circle")
-                                .withDefaultButtonFormatting(color: .green, width: 65, height: 35)
+                                .withDefaultButtonFormatting(color: showAddNewDeck ? .yellow : .green, width: 65, height: 35)
                             
                         }.withPRessableStyle()
                     }
                     ToolbarItem {
-                        EditButton()
-                            .withDefaultButtonFormatting(color: .yellow, width: 65, height: 35)
-                            .withPRessableStyle()
+                        Button(action: edit) {
+                            Label("Edit", systemImage: editDecks ? "gear.circle.fill" : "gear.circle")
+                                .withDefaultButtonFormatting(color: editDecks ? .red : .green, width: 65, height: 35)
+                            
+                        }.withPRessableStyle()
                     }
                     
                 }
                 AddDeckView(showView: $showAddNewDeck)
-                
             }.onAppear(){
-                
                 decks.forEach{ deck in
                     print("✅ decks: \(deck.title ?? "empty")")
                 }
-                
             }
         }
     }
@@ -90,11 +96,16 @@ struct DeckView: View {
         }
     }
     
+    private func edit() {
+        withAnimation{
+            editDecks.toggle()
+        }
+    }
     
-    private func deleteItems(offsets: IndexSet) {
+    private func delete(deck: Deck) {
+        print("deleting deck: \(deck.title ?? "no title")")
         withAnimation {
-            offsets.map { decks[$0] }.forEach(viewContext.delete)
-            PersistenceController.shared.save()
+            PersistenceController.shared.delete(deck: deck)
         }
     }
 }

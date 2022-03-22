@@ -20,7 +20,7 @@ struct DonePopUp: View {
                 
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 320, height: 350)
-                    .foregroundColor(.black)
+                    .foregroundColor(.popupBackground)
                     .overlay(
                 
                 RoundedRectangle(cornerRadius: 10)
@@ -32,13 +32,13 @@ struct DonePopUp: View {
                             
                             
                             Text("Congratulations!")
-                            //.foregroundColor(.white)
+                                .foregroundColor(.white)
                                 .font(.title)
                                 .bold()
                                 .padding()
                             
                             Text("You have finished all the words.")
-                            //.foregroundColor(.white)
+                                .foregroundColor(.white)
                                 .font(.title3)
                                 .multilineTextAlignment(.center)
                                 .padding(.bottom)
@@ -49,6 +49,7 @@ struct DonePopUp: View {
                             if viewModel.wrongCount > 0{
                                 
                                 Text("You got \(viewModel.wrongCount ) words wrong. \n Would you like to repeat the words you may still have trouble with?")
+                                    .foregroundColor(.white)
                                     .font(.subheadline)
                                     .multilineTextAlignment(.center)
                                 

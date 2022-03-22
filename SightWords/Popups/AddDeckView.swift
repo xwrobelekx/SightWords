@@ -14,54 +14,52 @@ struct AddDeckView: View {
     @State var language : String = "en-US"
     
     var body: some View {
-        // Circle()
         if showView {
             ZStack(alignment: .center){
                 Color.black.opacity(0.7)
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 300, height: 250)
-                    .foregroundColor(.black)
+                    .foregroundColor(.popupBackground)
                     .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(AngularGradient.gradient, lineWidth: 4)
                     .frame(width: 300, height: 250)
-                    //.foregroundColor(.black)
                     .overlay(
-                        
                         VStack{
-                            Picker("", selection: $language) {
-                                ForEach(Languages.allCases, id: \.self){ lang in
-                                    Text("\(lang.rawValue)").tag(lang.rawValue)
-                                }
-                            }
-                            
                             Text("Add Deck")
                                 .foregroundColor(.white)
-                                .font(.title)
+                                .font(.largeTitle)
                                 .bold()
                             
-                            TextField("type the name of new collection", text: $deckTitle)
+                            HStack {
+                                Text("Language: ")
+                                    .foregroundColor(.white)
+                                Picker("", selection: $language) {
+                                    ForEach(Languages.allCases, id: \.self){ lang in
+                                        switch lang {
+                                        case .English :
+                                            Text("English - US").tag(lang.rawValue)
+                                        case .Spanish :
+                                            Text("Spanish").tag(lang.rawValue)
+                                        case .Polish :
+                                            Text("Polish").tag(lang.rawValue)
+                                        }
+                                    }
+                                }
+                            }
+                            TextField("title:", text: $deckTitle)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .padding()
-                            
-                            
-                            
-                            Button(action: addItem, label: {
+                                                        
+                            Button(action: addItem) {
                                 Text(deckTitle == "" ? "Cancel" : "Save")
-                                    .foregroundColor(.white)
-                            })
-                                .frame(width: 100)
-                                .padding()
-                                .background(Color.blue)
-                                .cornerRadius(.infinity)
-                            
+                                    .withDefaultButtonFormatting(color: deckTitle == "" ? .orange : .green, width: 80, height: 40)
+                            }
+                            .withPRessableStyle()
                         })
                 )
-                
-                
             }.ignoresSafeArea()
         }
-        
     }
     
    private func addItem() {
